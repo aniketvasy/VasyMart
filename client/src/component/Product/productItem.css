@@ -1,0 +1,22 @@
+.product-item{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.loading{
+    color: black;
+}
+
+.EmpLoading {
+    text-align: center;
+    color: white;
+  }
+  
+  .EmpError {
+    text-align: center;
+    color: red;
+  }

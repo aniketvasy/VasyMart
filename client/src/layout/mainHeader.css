@@ -1,0 +1,26 @@
+header {
+    position: relative;
+    display: block;
+    height: 50px;
+    width: 100%;
+    /* max-width: 1280px; */
+    /* min-width: 1030px; */
+    /* margin: 0 auto; */
+    /* -webkit-box-sizing: border-box; */
+    box-sizing: border-box;
+    padding: 0 24px;
+    background: #008ecc;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+

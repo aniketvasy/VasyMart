@@ -1,0 +1,49 @@
+.item-list{
+    display: flex;
+    flex-direction: column;
+    /* align-content: ; */
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid slategray;
+    border-radius: 3px;
+    margin: 10px;
+    width: 250px;
+}
+
+.item-img {
+    width: 8em;
+    height: 8em;
+    margin: 10px;
+    box-shadow: 0.5px 0.5px gray;
+
+    width: auto!important;
+    max-height: 150px;
+    max-width: 100%;
+}
+
+.title-price-grp {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin-bottom: 5px;
+}
+
+.title {
+    color: black;
+    /* margin: 20px; */
+    margin: 5px 20px 20px 0px;
+    text-align: left;
+    max-width: 150px;
+}
+
+.price {
+    color: black;
+    margin: 5px 20px 20px 0px;
+    text-align: left
+}
+
+.item-img:hover{
+    transform: scale(1.1);
+}

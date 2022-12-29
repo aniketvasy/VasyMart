@@ -1,15 +1,39 @@
 // import { iteratorSymbol } from "immer/dist/internal";
-import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import MainHeader from "../../layout/MainHeader";
 import CartItemsList from "../Product/CartItemsList";
+import { cartActions } from "../../store/cart-Slice";
+import swal from "sweetalert";
 import "./Cart.css";
+import { useHistory } from "react-router-dom";
 
 const Cart = (props) => {
   const item = useSelector((state) => state.cart);
   const { itemsList, totalQuantity, totalPrice } = item;
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  console.log(itemsList, totalQuantity);
+  const orderDone = () => {
+    swal({
+      title: "Order Confirmation:)",
+      text: "Do you want to confirm order ?",
+      icon: "info",
+      buttons: true,
+      // dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal(`Your order is succesfully placed with VasyMart:)`, {
+          icon: "success",
+          title: `OrderId: ${Date.now()}`,
+        });
+        dispatch(cartActions.newCart());
+        history.push("/");
+      } else {
+        //   swal("Your imaginary file is safe!");
+      }
+    });
+  };
 
   const ItmList = itemsList.map((item) => (
     <CartItemsList
@@ -32,7 +56,7 @@ const Cart = (props) => {
             {itemsList.length > 0 ? (
               ItmList
             ) : (
-              <h2>&nbsp;&nbsp; Ooop's... its feels so light : &nbsp;&nbsp;</h2>
+              <h2>&nbsp;&nbsp; Ooop's... its feels so light :( &nbsp;&nbsp;</h2>
             )}
           </div>
           <section className="cout-sec">
@@ -42,8 +66,12 @@ const Cart = (props) => {
             </p>
             <div className="cart-btn">
               {itemsList.length && (
-                <button className="addCart-btn" type="submit">
-                  Proceed to checkout
+                <button
+                  className="addCart-btn"
+                  type="submit"
+                  onClick={orderDone}
+                >
+                  Proceed to Checkout
                 </button>
               )}
             </div>

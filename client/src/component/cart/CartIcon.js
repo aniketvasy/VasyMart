@@ -1,42 +1,38 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import './cartIcon.css'
+// import { AiOutlineShoppingCart } from "react-icons/ai";
+import "./cartIcon.css";
 import CartHover from "./CartHover";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const CartIcon = (props)=> {
-    const history = useHistory()
+const CartIcon = (props) => {
+  const history = useHistory();
 
-    // const totalQuantity = useState((state)=> state.cart.totalQuantity)
-    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-    const cart = ()=> {
-        console.log('clicked    ')
-        let path = '/cart'
-        history.push(path)
-    }
-  
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const cart = () => {
+    let path = "/cart";
+    history.push(path);
+  };
 
-    return(<React.Fragment>
-        <div className="cart-wrapper" >
-            Home
-            <a className="cart-anchor" >
-            
-            {/* <AiOutlineShoppingCart/> */}
-                <div className='cart-icon' onClick={cart}>
-                    
-                   {totalQuantity === 0 ? '' :<span className="header-span">{totalQuantity}</span>}
-                    
-                </div>
-                
-            </a>
-            <CartHover />
-             Contact Us
-            </div>
+  return (
+    <React.Fragment>
+      <div className="cart-wrapper">
+        <p onClick={() => history.push("/")}> Home</p>
+        <span className="cart-anchor">
+          {/* <AiOutlineShoppingCart/> */}
+          <div className="cart-icon" onClick={cart}>
+            {totalQuantity === 0 ? (
+              ""
+            ) : (
+              <span className="header-span">{totalQuantity}</span>
+            )}
+          </div>
+        </span>
+        <CartHover />
+        Contact Us
+      </div>
+    </React.Fragment>
+  );
+};
 
-        
-        </React.Fragment>
-    )
-}
-
-export default CartIcon
+export default CartIcon;

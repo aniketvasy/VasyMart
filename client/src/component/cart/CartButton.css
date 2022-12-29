@@ -1,0 +1,43 @@
+.cart-btn {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.addCart-btn{
+    background: #008ecc;
+    width: 80%;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 36px;
+    line-height: 36px;
+    border: 0;
+    color: #fff;
+    font-family: JioBold;
+    cursor: pointer;
+}
+
+.cart-btn-text{
+    margin-right: 10px;
+}
+
+.cartPlus-btn{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.cartMin-btn {
+    background: #008ecc;
+    border-radius: 400px 400px;
+    margin: 0px 10px;
+    font-weight: bolder;
+    font-size: larger;
+    color: white;
+    border-color: white;
+}
+
+.qnt {
+    color: black;
+}

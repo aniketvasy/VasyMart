@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-      <Route exact path="/cart">
+        <Route exact path="/cart">
           <Cart />
         </Route>
         <Route exact path="/">

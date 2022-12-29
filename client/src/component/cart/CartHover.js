@@ -3,28 +3,19 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./CartHover.css";
 const CartHover = (props) => {
-    const history = useHistory()
+  const history = useHistory();
   const item = useSelector((state) => state.cart);
   const { itemsList, totalQuantity, totalPrice } = item;
-  console.log(item);
-//   console.log(itemsList.map((item) => item.name));
-  console.log(itemsList);
+
   let a = [];
   if (itemsList.length > 2) {
-    for (let i = 0; i <= itemsList.length - 2; i++) {
+    for (let i = 0; i < 2; i++) {
       a.push(itemsList[i]);
-      console.log(itemsList, "looooopppp", a);
     }
   } else {
     a = itemsList;
   }
-  let nu;
-  if (a.length > 2) {
-    let no = a.length - 2;
-    nu = no;
-  }
 
-  console.log(itemsList);
   const ItmList = a.map((item) => (
     <li>
       {item.name} &nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,11 +26,10 @@ const CartHover = (props) => {
   ));
   // }
 
-  const cart = ()=> {
-    console.log('clicked    ')
-    let path = '/cart'
-    history.push(path)
-}
+  const cart = () => {
+    let path = "/cart";
+    history.push(path);
+  };
 
   return (
     <div className="btn btn-primary tooltip" onClick={cart}>
@@ -55,7 +45,7 @@ const CartHover = (props) => {
           ""
         )}
         <i></i>
-        <h4>Total Amount : {totalPrice} </h4>
+        <h4>Total Amount : {+totalPrice.toFixed(2)} </h4>
         {/* <div>
             <button type="submit">
                 Proceed to Cart
